@@ -50,4 +50,5 @@ public class ApiController implements IRestApi {
 	public ResponseEntity<Boolean> deleteCourse(@RequestBody Course course) {
 		return new ResponseEntity<>(courseService.deleteCourse(course), HttpStatus.OK);
 	}
+
 }
