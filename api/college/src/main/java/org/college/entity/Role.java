@@ -1,6 +1,3 @@
-/**
- * 
- */
 package org.college.entity;
 
 import javax.persistence.Column;
@@ -17,34 +14,23 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @JsonInclude(Include.NON_NULL)
 @Valid
 @Entity
-@Table(name = "course", schema = "public")
-public class Course {
+@Table(name = "role", schema = "public")
+public class Role {
 
 	@Id
 	@GeneratedValue
 	private Long id;
 
-	@NotNull(message = "Course Name can not be null")
-	@Column(unique = true, name = "name", nullable = false, length = 100)
+	@NotNull(message = "Role Name can not be null")
+	@Column(name = "name", nullable = false, unique = true)
 	private String name;
 
-	@Column(name = "description", length = 5000)
-	private String description;
-
-	public Course() {
+	public Role() {
 	}
 
-	public Course(String name, String description) {
+	public Role(String name) {
 		super();
 		this.name = name;
-		this.description = description;
-	}
-
-	public Course(Long id, String name, String description) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.description = description;
 	}
 
 	public Long getId() {
@@ -61,14 +47,6 @@ public class Course {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
 	}
 
 }
